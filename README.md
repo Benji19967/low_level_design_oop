@@ -1,2 +1,1 @@
-# low_level_design_oop
-Low level design problems
+# Low level design and OOP
