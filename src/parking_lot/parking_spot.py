@@ -38,7 +38,7 @@ class ParkingSpot:
     def unpark_vehicle(self) -> None:
         self._parked_vehicle = None
 
-    def display_availability(self):
+    def display_availability(self) -> None:
         print(
             f"Spot: {self._spot_number} is {'Available' if self.is_available() else 'Occupied'}"
         )
