@@ -13,4 +13,10 @@ https://github.com/ashishps1/awesome-low-level-design/blob/main/problems/parking
 
 ## Things to remember
 
-1. 
+1. Create SINGLETON for classes that should only be used once
+2. Create base class for vehicle, then you can create Car, Truck, ... objects and add functionality to them if needed
+3. Add identifiers for Vehicles (eg. license plate), Level (eg. floor number) to be able to uniquely identify them
+    - Helps for 
+        - displaying objects
+        - searching / finding objects
+4. When you use exceptions for control flow, don't forge to `return` on successful paths
