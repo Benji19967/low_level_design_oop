@@ -10,3 +10,7 @@ https://github.com/ashishps1/awesome-low-level-design/blob/main/problems/parking
 4. The system should assign a parking spot to a vehicle upon entry and release it when the vehicle exits.
 5. The system should track the availability of parking spots and provide real-time information to customers.
 6. The system should handle multiple entry and exit points and support concurrent access.
+
+## Things to remember
+
+1. 

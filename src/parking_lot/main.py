@@ -27,6 +27,7 @@ if __name__ == "__main__":
         ),
     ]
     parking_lot = ParkingLot(levels=levels)
+    parking_lot = ParkingLot(levels=levels)
     parking_lot.display_availability()
     parking_lot.park_vehicle(vehicle=Car(license_plate="HJKHS"))
     parking_lot.park_vehicle(vehicle=Car(license_plate="POSGH"))
