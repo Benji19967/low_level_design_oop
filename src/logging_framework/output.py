@@ -3,6 +3,7 @@ from datetime import datetime
 from enum import Enum
 from pathlib import Path
 
+import pendulum
 from log_level import LogLevel
 
 
@@ -16,7 +17,6 @@ class Output(ABC):
     @abstractmethod
     def write(
         self,
-        dt: datetime,
         log_level: LogLevel,
         message: str,
     ) -> None:
@@ -26,11 +26,10 @@ class Output(ABC):
 class Console(Output):
     def write(
         self,
-        dt: datetime,
         log_level: LogLevel,
         message: str,
     ) -> None:
-        print(f"{dt} - {str(log_level.name)}: {message}")
+        print(f"{pendulum.now()} - {str(log_level.name)}: {message}")
 
 
 class File(Output):
@@ -40,9 +39,8 @@ class File(Output):
 
     def write(
         self,
-        dt: datetime,
         log_level: LogLevel,
         message: str,
     ) -> None:
         with open(self._filepath, "a") as f:
-            f.write(f"{dt} - {str(log_level.name)}: {message}\n")
+            f.write(f"{pendulum.now()} - {str(log_level.name)}: {message}\n")
