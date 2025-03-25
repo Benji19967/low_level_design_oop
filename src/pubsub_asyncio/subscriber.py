@@ -19,6 +19,7 @@ class Subscriber:
             item = await q.get()
             if item is None:
                 q.task_done()
+                print("DONE")
                 return
             asyncio.create_task(self._do_task(item))
             q.task_done()

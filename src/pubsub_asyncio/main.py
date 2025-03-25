@@ -26,7 +26,7 @@ async def main():
     queues.extend([q1, q2, q3, q4])
 
     for i in range(
-        100
+        1000
     ):  # No max number here, whereas threads are limited to roughly 2000
         sub = Subscriber(id=i + 4)
         q = await sub.subscribe(topic=topic_1)
@@ -38,12 +38,15 @@ async def main():
     await pub_1.publish(topic=topic_2, item="Pub 1 to topic 2")
     await pub_2.publish(topic=topic_2, item="Pub 2 to topic 2")
 
-    for i in range(800):
+    for i in range(100):
         pub = Publisher(id=3)
         await pub.publish(topic=topic_1, item=f"Pub message {i} to topic 1")
 
     for q in queues:
         await q.join()
+
+    # Optionally, end the listener tasks
+    await pub.publish(topic=topic_1, item=None)
 
 
 if __name__ == "__main__":

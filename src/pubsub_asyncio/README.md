@@ -16,3 +16,4 @@ https://github.com/ashishps1/awesome-low-level-design/blob/main/problems/pub-sub
 
 1. There is no limitation in the number of tasks created --> I can have unlimited number of subscribers
     - When using threads, limited to roughly 2000 threads/subscribers with the current implementation
+2. You need to make sure the solution scales with the number of messages sent as well as with the number of subscriptions
