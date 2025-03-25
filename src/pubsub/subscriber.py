@@ -1,5 +1,6 @@
 import queue
 import threading
+import time
 
 from topic import Topic
 
@@ -25,5 +26,6 @@ class Subscriber:
             if item is None:
                 q.task_done()
                 return
-            print(f"Subscriber {self._id}: working on {item}")
+            # print(f"Subscriber {self._id}: working on {item}")
+            time.sleep(0.1)
             q.task_done()
