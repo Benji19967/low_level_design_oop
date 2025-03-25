@@ -5,8 +5,8 @@ from topic import Topic
 
 def main():
 
-    topic_1 = Topic()
-    topic_2 = Topic()
+    topic_1 = Topic(id=1)
+    topic_2 = Topic(id=2)
 
     pub_1 = Publisher(id=1)
     pub_2 = Publisher(id=2)
@@ -21,6 +21,14 @@ def main():
     q3 = sub_3.subscribe(topic=topic_1)
     q4 = sub_3.subscribe(topic=topic_2)
     queues.extend([q1, q2, q3, q4])
+
+    pub_1.publish(topic=topic_1, item="Pub 1 to topic 1")
+    pub_2.publish(topic=topic_1, item="Pub 2 to topic 1")
+
+    pub_1.publish(topic=topic_2, item="Pub 1 to topic 2")
+    pub_2.publish(topic=topic_2, item="Pub 2 to topic 2")
+
+    sub_3.unsubscribe(topic=topic_2)
 
     pub_1.publish(topic=topic_1, item="Pub 1 to topic 1")
     pub_2.publish(topic=topic_1, item="Pub 2 to topic 1")

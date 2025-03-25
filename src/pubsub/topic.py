@@ -2,8 +2,13 @@ import queue
 
 
 class Topic:
-    def __init__(self) -> None:
+    def __init__(self, id: int) -> None:
+        self._id = id
         self._subscriptions: dict[int, queue.Queue] = {}
+
+    @property
+    def id(self) -> int:
+        return self._id
 
     def put_item(self, item: str) -> None:
         for subscription in self._subscriptions.values():
