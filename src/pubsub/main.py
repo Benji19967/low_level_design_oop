@@ -4,19 +4,19 @@ from subscriber import Subscriber
 from topic import Topic
 
 
-def main():
+def main() -> None:
 
     start = pendulum.now()
 
-    topic_1 = Topic(id=1)
-    topic_2 = Topic(id=2)
+    topic_1 = Topic[str](id=1)
+    topic_2 = Topic[str](id=2)
 
     pub_1 = Publisher(id=1)
     pub_2 = Publisher(id=2)
 
-    sub_1 = Subscriber(id=1)
-    sub_2 = Subscriber(id=2)
-    sub_3 = Subscriber(id=3)
+    sub_1 = Subscriber[str](id=1)
+    sub_2 = Subscriber[str](id=2)
+    sub_3 = Subscriber[str](id=3)
 
     queues = []
     q1 = sub_1.subscribe(topic=topic_1)
@@ -26,7 +26,7 @@ def main():
     queues.extend([q1, q2, q3, q4])
 
     for i in range(2000):  # there is a max number (of threads) here (roughly 2000)
-        sub = Subscriber(id=i + 4)
+        sub = Subscriber[str](id=i + 4)
         q = sub.subscribe(topic=topic_1)
         queues.append(q)
 

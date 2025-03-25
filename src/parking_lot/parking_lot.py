@@ -33,7 +33,7 @@ class Level:
                 return
         raise VehicleNotFoundError
 
-    def display_availability(self):
+    def display_availability(self) -> None:
         print("Level {self.floor} availability:")
         for spot in self._parking_spots:
             spot.display_availability()
@@ -71,7 +71,7 @@ class ParkingLot:
                 continue
         raise VehicleNotFoundError
 
-    def display_availability(self):
+    def display_availability(self) -> None:
         print("Parking lot availability:")
         for level in self._levels:
             level.display_availability()

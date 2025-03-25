@@ -1,6 +1,7 @@
 from pathlib import Path
 
-from logger import Logger, LogLevel
+from log_level import LogLevel
+from logger import Logger
 from output import Console, File
 
 if __name__ == "__main__":
