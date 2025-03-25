@@ -7,7 +7,6 @@ from topic import Topic
 
 
 async def main():
-    start = pendulum.now()
 
     topic_1 = Topic(id=1)
     topic_2 = Topic(id=2)
@@ -39,15 +38,15 @@ async def main():
     await pub_1.publish(topic=topic_2, item="Pub 1 to topic 2")
     await pub_2.publish(topic=topic_2, item="Pub 2 to topic 2")
 
-    for i in range(80):
+    for i in range(800):
         pub = Publisher(id=3)
         await pub.publish(topic=topic_1, item=f"Pub message {i} to topic 1")
 
     for q in queues:
         await q.join()
 
-    print((pendulum.now() - start).seconds)
-
 
 if __name__ == "__main__":
+    start = pendulum.now()
     asyncio.run(main())
+    print((pendulum.now() - start).seconds)

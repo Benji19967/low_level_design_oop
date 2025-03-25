@@ -20,6 +20,9 @@ class Subscriber:
             if item is None:
                 q.task_done()
                 return
-            # print(f"Subscriber {self._id}: working on {item}")
-            await asyncio.sleep(0.1)
+            asyncio.create_task(self._do_task(item))
             q.task_done()
+
+    async def _do_task(self, item: str) -> None:
+        print(f"Subscriber {self._id}: working on {item}")
+        await asyncio.sleep(0.1)
