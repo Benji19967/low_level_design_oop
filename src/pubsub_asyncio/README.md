@@ -19,3 +19,4 @@ https://github.com/ashishps1/awesome-low-level-design/blob/main/problems/pub-sub
 2. You need to make sure the solution scales with the number of messages sent as well as with the number of subscriptions
     - Seperate the tasks that listen to topics to fetch work and tasks that actually do the work --> can have many more tasks
     running simultaneously
+3. You can use `uvloop.run()` as drop-in replacement for `asyncio.run()` and increase speed by 2x.

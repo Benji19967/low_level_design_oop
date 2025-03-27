@@ -1,6 +1,7 @@
 import asyncio
 
 import pendulum
+import uvloop
 from publisher import Publisher
 from subscriber import Subscriber
 from topic import Topic
@@ -38,7 +39,7 @@ async def main() -> None:
     await pub_1.publish(topic=topic_2, item="Pub 1 to topic 2")
     await pub_2.publish(topic=topic_2, item="Pub 2 to topic 2")
 
-    for i in range(100):
+    for i in range(200):
         pub = Publisher[str](id=3)
         await pub.publish(topic=topic_1, item=f"Pub message {i} to topic 1")
 
@@ -51,5 +52,6 @@ async def main() -> None:
 
 if __name__ == "__main__":
     start = pendulum.now()
-    asyncio.run(main())
+    # asyncio.run(main())
+    uvloop.run(main())
     print((pendulum.now() - start).seconds)
